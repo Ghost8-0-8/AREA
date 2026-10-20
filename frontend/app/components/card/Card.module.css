@@ -1,0 +1,157 @@
+.background {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--light-blue);
+  }
+  
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .bubble {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--light-moreblue);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    width: 600px;
+  }
+  
+  .topSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .date {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--true-black);
+  }
+  
+  .toggleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 62px;
+    height: 35px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    background: #fff;
+    transition: .4s;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.9em;
+    width: 1.9em;
+    border-radius: 16px;
+    left: 1.2px;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px #999999;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--neon-green);
+    border: 1px solid transparent;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(1.5em);
+  }
+  
+  
+  .iconSection {
+    display: flex;
+    align-items: center;
+  }
+  
+  .iconPlaceholder {
+    width: 40px;
+    height: 40px;
+    background-color: var(--medium-ocean);
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  .dots {
+    margin-right: 10px;
+    font-size: 20px;
+    color: var(--medium-ocean);
+  }
+  
+  .linkText {
+    font-size: 16px;
+    color: var(--true-black);
+    cursor: pointer;
+  }
+  
+  .actionIcons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .messageSection {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .messageContent {
+    font-size: 14px;
+    color: var(--true-black);
+  }
+  
+  .editIcon {
+    margin-top: 15px;
+    text-align: right;
+    margin-right: 20px;
+  }
+
+.bubbleList {
+  display: flex;         
+  flex-direction: row;      
+  flex-wrap: wrap;            
+  justify-content: space-around;
+  gap: 40px;                 
+  padding: 20px;        
+}
+
+@media (max-width: 768px) {
+  .bubble {
+    flex-basis: 80%; 
+    max-width: none; 
+    min-width: 50%; 
+  }
+}

@@ -1,0 +1,97 @@
+"use client";
+
+import React, { useState, useEffect } from 'react';
+import Navbar from '../../components/navbar/Navbar';
+import Sidebar from '../../components/sidebar/Sidebar';
+import style from './Create.module.css';
+import '../../globals.css';
+
+const Create: React.FC = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [areas, setAreas] = useState<any[]>([]);
+  const [loadingAreas, setLoadingAreas] = useState<boolean>(false);
+  const [showAreas, setShowAreas] = useState<boolean>(false);
+
+  const [services, setServices] = useState<any[]>([]);
+  const [loadingServices, setLoadingServices] = useState<boolean>(false);
+  const [showServices, setShowServices] = useState<boolean>(false);
+
+  const [actions, setActions] = useState<string[]>([]);
+  const [loadingActions, setLoadingActions] = useState<boolean>(false);
+  const [showActions, setShowActions] = useState<boolean>(false);
+
+  const fetchAreas = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found');
+      return;
+    }
+
+    setLoadingAreas(true);
+
+    try {
+      const response = await fetch('http://localhost:8080/api/area/', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setAreas(result.data);
+      } else {
+        console.error('Failed to fetch areas:', result);
+      }
+    } catch (error) {
+      console.error('Error fetching areas:', error);
+    } finally {
+      setLoadingAreas(false);
+    }
+  };
+
+  const fetchServices = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found');
+      return;
+    }
+
+    setLoadingServices(true);
+  };
+
+  return (
+    <div className={style.background}>
+      <Navbar />
+      <Sidebar onToggle={setIsSidebarOpen} />
+    </div>
+  );
+};
+
+export default Create;
+
+
+
+Bien maintenant ( oublions le css ) nous allons rendre le code modulaire à partir de maintenant 
+
+pour les prochaines requêtes API, un pour show les actions et un pour show les reactions 
+
+et nous allons rendre l'URL modulaire , je m'explique 
+
+curl --location 'localhost:8080/api/area/service/"le-service-sélectionné"/actions'
+curl --location 'localhost:8080/api/area/service/"le-service-sélectionné/reactions'
+
+En fonction du service sélectionné , l'URL changera 
+
+donc ça peut être
+
+curl --location 'localhost:8080/api/area/service/discord/get_server_message'
+ou
+curl --location 'localhost:8080/api/area/service/gmail/xxx'
+
+tu comprends ? si j'appuie le service discord , toutes les actions réactions seront pour discord
+de même pour gmail ou tout autre service que j'appuierai dessus
+
+
+Il faudrait faire pour "Method Parameters:" un différencement entre créant "Method Parameters <action>:" et "Method Parameters <reaction>:" , puis quand les champs / le champ de texte est rempli alors un bouton "save" apparait et quand on clique dessus ça stock les données ajoutées , puis quand les données de "Method Parameters <action>:" et de "Method Parameters <reaction>:" sont toutes save alors le bouton Add area devient fonctionnel 

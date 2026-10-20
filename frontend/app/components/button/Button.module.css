@@ -1,0 +1,47 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.button {
+    padding: 15px 20px;
+    background-color: var(--medium-green);
+    color: var(--true-ocean);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin: 10px;
+    margin-top: 50px;
+    margin-left: 100px; 
+}
+  
+.button:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.button-disabled {
+    background-color: var(--light-moreblue);
+    cursor: not-allowed;
+}
+
+.selected {
+    border: 1px solid var(--verydark-ocean);
+    color: var(--verydark-ocean);
+}
+
+/* Dark Mode */
+.night-mode-button {
+    background-color: var(--dark-ocean);
+    color: var(--neon-blue);
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.3);
+}
+  
+.night-mode-button:hover {
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+}

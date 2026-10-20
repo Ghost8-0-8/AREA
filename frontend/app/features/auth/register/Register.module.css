@@ -1,0 +1,286 @@
+.wrapper {
+  width: 520px;
+  background: url('../../../fonts/logolight.png') no-repeat center calc(22px + 0%);
+  background-size: 90px auto;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(9px);
+  color: var(--true-black);
+  border-radius: 12px;
+  padding: 90px 40px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center; 
+  color: var(--true-white);
+  text-decoration: none;
+  font-size: 24px;
+  margin-bottom: -10px;
+  margin-left: -20px;
+  transition: color 0.3s ease;
+
+  position: relative;
+  top: -60px;
+}
+
+.back-button:hover {
+  color: var(--dark-ocean)
+}
+
+.back-button .MuiSvgIcon-root {
+  font-size: 24px; 
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover .MuiSvgIcon-root {
+  transform: translateX(-3px);
+}
+
+.wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(164, 253, 235, 0.3), rgba(0, 96, 100, 0.3));
+  filter: blur(15px);
+}
+
+.wrapper h1 {
+  margin: 10px;
+  font-size: 36px;
+  text-align: center;
+}
+
+.input-box-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0; 
+}
+
+.input-box {
+  flex: 1; 
+  margin-right: 15px;
+}
+
+.input-box:last-child {
+  margin-right: 0;
+}
+
+.input-box {
+  flex: 0 0 48%;
+  position: relative;
+  background: var(--true-white);
+  width: 100%;
+  height: 50px;
+  margin: 5px 0;
+  border-radius: 40px;
+  border: 2px solid var(--true-black);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.input-box input:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, .2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: var(--true-black);
+  padding: 0 40px 0 20px;
+  box-sizing: border-box;
+}
+
+.input-box input::placeholder {
+  color: var(--true-black);
+}
+
+/*password*/
+
+.password-group {
+  display: block;
+  margin: 20px 0;
+}
+
+.password-box {
+  flex: 0 0 48%;
+  position: relative;
+  background: var(--true-white);
+  width: 90%;
+  height: 50px;
+  margin: 5px 0;
+  border-radius: 40px;
+  border: 2px solid var(--true-black);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  padding-right: 40px;
+}
+
+.password-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  font-size: 16px;
+  color: var(--true-black);
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.password-box input::placeholder {
+  color: var(--true-black);
+}
+
+.password-box input:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+/*user conditions*/
+
+.user-conditions {
+  display: flex;
+  flex-direction: column;
+  font-size: 14.5px;
+  margin: 5px 0 5px;
+}
+
+.user-conditions label {
+  margin-bottom: 5px;
+}
+
+.user-conditions label input {
+  accent-color: var(--true-black);
+  margin-right: 3px;
+}
+
+.user-conditions a {
+  color: var(--true-black);
+  text-decoration: none;
+}
+
+
+/*register*/
+
+.wrapper .btn-register {
+  width: 100%;
+  height: 45px;
+  background: var(--light-moreblue);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--true-black);
+  font-weight: 600;
+}
+
+.wrapper .btn-register:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.register-wrapper {
+  padding: 20px;
+}
+
+/* Modal Styles */
+.modal-content h2 {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--light-blue);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 80%; 
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-text {
+  max-height: 60vh;
+  overflow-y: auto;
+  color: var(--medium-grey);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 30px;
+}
+
+.btn-accept, .btn-reject {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px; 
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-accept {
+  background-color: var(--neon-green);
+  color: var(--true-black);
+}
+
+.btn-reject {
+  background-color: var(--true-red); 
+  color: var(--true-black);
+}
+
+.btn-accept:hover, .btn-reject:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+  /* Dark Mode  */
+
+  .night-mode-wrapper {
+    color: var(--true-white);
+  }

@@ -1,0 +1,93 @@
+import React, { useState } from 'react';
+import { StyleSheet, FlatList } from 'react-native';
+import { TamaguiProvider, Button, YStack, XStack, Sheet, Text } from 'tamagui';
+import config from '../../tamagui.config';
+
+interface DropdownMenuIconProps {
+  selectedItem: string;
+  setSelectedItem: (value: string) => void;
+}
+
+export const DropdownMenuAction: React.FC<DropdownMenuIconProps> = ({ selectedItem, setSelectedItem }) => {
+  const [open, setOpen] = useState(false);
+
+  const services = [
+    { label: 'Message reçu sur le serveur :', value: 'get_server_message' },
+  ];
+
+  const handleSelect = (value: string) => {
+    setSelectedItem(value);
+    setOpen(false);
+  };
+
+  const renderService = ({ item }: { item: { label: string; value: string;} }) => (
+    <Button
+      onPress={() => handleSelect(item.value)}
+      style={styles.serviceButton}
+    >
+      <Text>{item.label}</Text>
+    </Button>
+  );
+
+  return (
+    <TamaguiProvider config={config}>
+      <YStack alignItems="center" justifyContent="center" flex={1}>
+        <Button onPress={() => setOpen(true)} style={styles.button}>
+          <XStack alignItems="center">
+            {selectedItem ? (
+              <Text>
+                {services.find(s => s.value === selectedItem)?.label}
+              </Text>
+            ) : (
+              <Text style={styles.text}>Sélectionnez une option</Text>
+            )}
+          </XStack>
+        </Button>
+        <Sheet
+          modal
+          open={open}
+          onOpenChange={setOpen}
+          snapPointsMode={'fit'}
+          dismissOnOverlayPress={true}
+          style={{ width: '100%', flex: 1, maxHeight: '80%', minHeight: 300 }}
+        >
+          <FlatList
+            data={services}
+            renderItem={renderService}
+            keyExtractor={(item) => item.value}
+            showsVerticalScrollIndicator={false}
+            style={{ width: '100%' }}
+          />
+        </Sheet>
+      </YStack>
+    </TamaguiProvider>
+  );
+};
+
+const styles = StyleSheet.create({
+  button: {
+    width: 300,
+    height: 50,  
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10, 
+  },
+  serviceButton: {
+    width: 300,
+    height: 50,  
+    marginVertical: 5,
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    height: 20,
+    alignSelf: 'center',
+    fontFamily: 'Josefin',
+    color: 'white',
+    fontSize: 18,
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+  },
+});

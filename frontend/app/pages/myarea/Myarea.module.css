@@ -1,0 +1,24 @@
+.background {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--light-blue);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* Dark mode */
+.night-mode {
+  background-color: var(--verydark-ocean);
+  color: var(--true-white);
+}
+
+.night-mode-content {
+  background-color: var(--verydark-ocean);
+}

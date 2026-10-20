@@ -1,0 +1,161 @@
+.userCard {
+    width: 400px;    
+    height: 900px;         
+    border: 1px solid #ccc;    
+    border-radius: 8px;        
+    padding: 16px;          
+    display: flex;       
+    flex-direction: column;     
+    align-items: center;       
+    background:  linear-gradient(to top, var(--light-blue), var(--light-moreblue), var(--medium-green));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;        
+    right: 20px;            
+    top: 80px;           
+    z-index: 1000;            
+    overflow-y: auto;         
+}
+
+.profileImageContainer {
+    width: 120px;        
+    height: 120px;
+    overflow: hidden;          
+    border-radius: 50%;      
+    margin-bottom: 16px;      
+}
+
+.profileImage {
+    width: 100%;               
+    height: 100%;                
+    object-fit: cover;         
+}
+
+.userInfo {
+    text-align: center;        
+}
+
+.username {
+    font-size: 1.5rem;         
+    font-weight: bold;       
+    margin-bottom: 16px;  
+    color: var(--true-black);    
+}
+
+.infoBox {
+    text-align: left;    
+    background-color: transparent;    
+    border-radius: 8px;      
+    padding: 10px;      
+    width: 100%;              
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.infoBox p {
+    margin: 8px 0;         
+    font-size: 0.9rem;   
+    color: var(--true-black);    
+}
+
+.infoBox strong {
+    font-weight: bold;   
+    color: var(--true-black);    
+}
+
+.rectangle {
+    border: 1px solid #ccc; 
+    border-radius: 8px;
+    padding: 15px; 
+    margin: 10px 0;
+    background-color: #f9f9f9; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    color: var(--true-black);
+    display: flex;  
+    align-items: center;
+}
+
+
+.rectangle:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+
+.editInput {
+    width: 100%; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--true-black); 
+    background-color: #fff; 
+    transition: border-color 0.3s ease; 
+}
+
+.editInput:focus {
+    border-color: var(--medium-ocean); 
+    outline: none; 
+    box-shadow: 0 0 5px var(--medium-ocean);
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.cancelButton,
+.saveButton {
+    padding: 20px 30px;
+    border: none; 
+    cursor: pointer;
+    border-radius: 20px;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.cancelButton {
+    background-color: red; 
+    color: var(--true-black);
+}
+
+.saveButton {
+    background-color: var(--neon-green); 
+    color: var(--true-black);
+}
+
+.cancelButton:hover,
+.saveButton:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.editIcon {
+    cursor: pointer;
+    margin-left: 10px; 
+    color: var(--text-color);
+    transition: color 0.3s ease; 
+}
+
+.editIcon:hover {
+    color: var(--neon-green); 
+}
+
+/* Dark Mode */
+.night-mode-user-card {    
+    border: 1px solid var(--neon-blue);   
+    color: var(--true-black);
+    background:  linear-gradient(to top, var(--neon-blue), var(--true-ocean), var(--verydark-ocean));
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);       
+}
+.night-mode-username {
+    color: var(--true-white); 
+}
+
+.night-mode-editInput {
+    color: var(--true-black); 
+}
+
+.night-mode-rectangle {
+    color: var(--true-black);
+}

@@ -1,0 +1,222 @@
+"use client";
+
+import React, { useState, useEffect } from 'react';
+import Navbar from '../../components/navbar/Navbar';
+import Sidebar from '../../components/sidebar/Sidebar';
+import style from './Create.module.css';
+import '../../globals.css';
+
+const Create: React.FC = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [areas, setAreas] = useState<any[]>([]); 
+  const [loadingAreas, setLoadingAreas] = useState<boolean>(false);
+  const [showAreas, setShowAreas] = useState<boolean>(false);
+
+  const [services, setServices] = useState<any[]>([]);
+  const [loadingServices, setLoadingServices] = useState<boolean>(false);
+  const [showServices, setShowServices] = useState<boolean>(false);
+
+  const [actions, setActions] = useState<string[]>([]);
+  const [loadingActions, setLoadingActions] = useState<boolean>(false);
+  const [showActions, setShowActions] = useState<boolean>(false);
+
+  const fetchAreas = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found');
+      return;
+    }
+
+    setLoadingAreas(true);
+
+    try {
+      const response = await fetch('http://localhost:8080/api/area/', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setAreas(result.data);
+      } else {
+        console.error('Failed to fetch areas:', result);
+      }
+    } catch (error) {
+      console.error('Error fetching areas:', error);
+    } finally {
+      setLoadingAreas(false);
+    }
+  };
+
+  const fetchServices = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found');
+      return;
+    }
+
+    setLoadingServices(true);
+
+    try {
+      const response = await fetch('http://localhost:8080/api/area/services', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setServices(result.data);
+      } else {
+        console.error('Failed to fetch services:', result);
+      }
+    } catch (error) {
+      console.error('Error fetching services:', error);
+    } finally {
+      setLoadingServices(false);
+    }
+  };
+
+  const fetchActions = async (service: string) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found');
+      return;
+    }
+
+    setLoadingActions(true);
+
+    try {
+      const response = await fetch(`http://localhost:8080/api/area/service/${service}/actions`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setActions(result.data);
+      } else {
+        console.error('Failed to fetch actions:', result);
+      }
+    } catch (error) {
+      console.error('Error fetching actions:', error);
+    } finally {
+      setLoadingActions(false);
+    }
+  };
+
+ 
+  const handleShowActions = () => {
+    fetchActions('discord');
+    setShowActions(true);
+  };
+
+  const handleShowAreas = () => {
+    if (!showAreas) {
+      fetchAreas();
+    }
+    setShowAreas(true);
+  };
+
+  const handleShowServices = () => {
+    if (!showServices) {
+      fetchServices();
+    }
+    setShowServices(true);
+  };
+
+  return (
+    <div className={style.background}>
+      <Navbar />
+      <Sidebar onToggle={setIsSidebarOpen} />
+
+      <div className={style.buttonContainer}>
+        <button onClick={handleShowAreas} className={style.showAreasButton}>
+          Show Areas
+        </button>
+        
+        {loadingAreas ? (
+          <div>Loading areas...</div>
+        ) : (
+          showAreas && (
+            <div className={style.areaListContainer}>
+              <h3>Existing Areas:</h3>
+              <ul>
+                {areas.length > 0 ? (
+                  areas.map((area) => (
+                    <li key={area._id} className={style.areaListItem}>
+                      {`Area: Action - ${area.action.method}, Reaction - ${area.reaction.method}`}
+                    </li>
+                  ))
+                ) : (
+                  <li>No areas available</li>
+                )}
+              </ul>
+            </div>
+          )
+        )}
+
+        <button onClick={handleShowServices} className={style.showServicesButton}>
+          Show Services
+        </button>
+
+        {loadingServices ? (
+          <div>Loading services...</div>
+        ) : (
+          showServices && (
+            <div className={style.serviceListContainer}>
+              <h3>Available Services:</h3>
+              <ul>
+                {services.length > 0 ? (
+                  services.map((service) => (
+                    <li key={service} className={style.serviceListItem} style={{ color: 'black', fontWeight: 'bold' }}>
+                      {service}
+                    </li>
+                  ))
+                ) : (
+                  <li>No services available</li>
+                )}
+              </ul>
+            </div>
+          )
+        )}
+
+        {/* Nouveau bouton pour afficher les actions */}
+        <button onClick={handleShowActions} className={style.showActionsButton}>
+          Show Actions for Discord
+        </button>
+
+        {loadingActions ? (
+          <div>Loading actions...</div>
+        ) : (
+          showActions && (
+            <div className={style.actionListContainer}>
+              <h3>Available Actions for Discord:</h3>
+              <ul>
+                {actions.length > 0 ? (
+                  actions.map((action, index) => (
+                    <li key={index} className={style.actionListItem}>
+                      {action} {/* Affichez chaque action directement */}
+                    </li>
+                  ))
+                ) : (
+                  <li>No actions available</li>
+                )}
+              </ul>
+            </div>
+          )
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Create;

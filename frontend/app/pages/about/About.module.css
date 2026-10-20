@@ -1,0 +1,131 @@
+.background {
+    background-color: var(--light-blue);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center;
+    margin: auto; 
+    color: var(--true-black);
+  }
+
+
+  .aboutUs {
+    color: var(--true-black);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-size: 3rem;
+  }
+  
+  .container {
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 200px;
+  }
+  
+  .title {
+    color: var(--true-black);
+    font-size: 46px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .intro {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: var(--true-black);
+  }
+  
+  .section {
+    margin-bottom: 30px;
+  }
+  
+  .sectionTitle {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--true-black);
+  }
+  
+  .text {
+    font-size: 22px;
+    line-height: 1.6;
+    color: var(--true-black);
+  }
+
+  .teamGrid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .teamMember {
+    font-size: 18px; 
+    text-align: center;
+    width: calc(12% - 20px);
+  }
+  
+  .teamImage {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+  }
+  
+  .teamMember:nth-child(1) .teamImage {
+    background-image: url('../../fonts/Adam.JPG');
+  }
+  
+  .teamMember:nth-child(2) .teamImage {
+    background-image: url('../../fonts/Celestin.JPG');
+  }
+  
+  .teamMember:nth-child(3) .teamImage {
+    background-image: url('../../fonts/Elisa.jpg');
+  }
+  
+  .teamMember:nth-child(4) .teamImage {
+    background-image: url('../../fonts/Anthony.png');
+  }
+  
+  .teamMember:nth-child(5) .teamImage {
+    background-image: url('../../fonts/Sonny.JPG');
+  }
+  
+  @media (max-width: 768px) {
+    .teamMember {
+      width: calc(50% - 20px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .teamMember {
+      width: 100%;
+    }
+  }
+  
+/* Dark mode */
+.night-mode {
+  background-color: var(--verydark-ocean);
+  color: var(--true-white);
+}
+
+.night-mode-title {
+  color: var(--neon-blue);
+}
+
+.night-mode h2,
+.night-mode p {
+  color: var(--true-white);
+}
+
+.night-mode-container {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+}

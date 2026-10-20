@@ -1,0 +1,81 @@
+.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; 
+  background: var(--light-blue);
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  width: 800px;
+  text-align: center; 
+}
+
+.card h2 {
+  color: black;
+  margin-bottom: 30px; 
+  font-size: 46px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.input, .textarea {
+  width: 80%; 
+  padding: 15px; 
+  font-size: 22px;
+  border: 1px solid var(--medium-ocean);
+  border-radius: 4px;
+}
+
+.textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+.button {
+  background-color: var(--medium-ocean);
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 80%;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode */
+.night-mode {
+  background-color: var(--verydark-ocean);
+  color: var(--true-white);
+}
+
+.night-mode h2 {
+  color: var(--neon-blue);
+
+}
+.night-mode p {
+  color: var(--true-white);
+}
+
+.night-mode-card {
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+.night-mode-button:hover {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+}
+

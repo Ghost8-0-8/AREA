@@ -1,0 +1,177 @@
+/* Global Background */
+.background {
+  background-color: var(--light-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  height: 100vh; /* Assure que le conteneur couvre toute la hauteur de la vue */
+  width: 100vw; /* Assure que la largeur couvre tout l'écran */
+  overflow: hidden; /* Supprime tout débordement potentiel */
+  margin: 0; /* Supprime les marges par défaut */
+  position: relative; /* Assure que le conteneur occupe l'espace disponible */
+}
+
+/* Content Section */
+.content {
+  background-color: var(--light-blue);
+  padding: 20px 10px; /* Réduction des marges pour économiser de l'espace */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Flip Card Container */
+.flip-card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 200px; /* Réduction de l'espacement entre les cartes */
+  margin-top: 100px; /* Réduction de la marge au-dessus */
+  justify-content: center; /* Centre les cartes dans le conteneur */
+}
+
+/* Individual Card Background Images */
+.gmail {
+  background-image: url('../../fonts/gmail.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.cat {
+  background-image: url('../../fonts/cat.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.discord {
+  background-image: url('../../fonts/discord.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.spotify {
+  background-image: url('../../fonts/spotify.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.riot {
+  background-image: url('../../fonts/riot.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.steam {
+  background-image: url('../../fonts/steam.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Text Styles */
+.back strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.4rem; /* Ajustement de la taille de police */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1424px) {
+  .flip-card-container {
+    grid-template-columns: repeat(2, 1fr); /* Passe à 2 colonnes pour les écrans plus petits */
+    gap: 30px 30px; /* Ajustement de l'espacement */
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flip-card-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 20px;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flip-card-container {
+    grid-template-columns: repeat(1, 1fr); /* Passe à 1 colonne pour petits écrans */
+    gap: 15px 15px;
+    margin-top: 10px;
+  }
+}
+
+/* Dark Mode Styling */
+.night-mode {
+  background-color: var(--verydark-ocean);
+  color: var(--true-white);
+}
+
+.night-mode-content {
+  background-color: var(--verydark-ocean);
+}
+
+.card-container {
+  margin-bottom: 50px; /* Réduction de l'espacement en bas de chaque carte */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les cartes */
+}
+
+/* Button Styling */
+.button {
+  margin-top: 40px; /* Réduction de l'espacement au-dessus des boutons */
+  padding: 10px 55px; /* Ajustement des dimensions du bouton */
+  font-size: 18px; /* Taille de police réduite */
+  cursor: pointer;
+  font-weight: bold;
+  background-color: var(--light-moreblue);
+  color: var(--true-black);
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.button:hover {
+  background-color: var(--medium-ocean);
+}
+
+.btn-no-auth {
+  margin-top: 40px; /* Réduction de l'espacement au-dessus des boutons */
+  padding: 10px 55px; /* Ajustement des dimensions du bouton */
+  font-size: 18px; /* Taille de police réduite */
+  cursor: pointer;
+  font-weight: bold;
+  background-color: var(--light-blue);
+  color: var(--true-black);
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.night-mode-button {
+  background-color: var(--medium-ocean);
+  box-shadow: 2px 0 5px rgba(255, 255, 255, 0.3);
+  color: var(--true-white);
+}
+
+.night-mode-button:hover {
+  background-color: var(--neon-blue);
+  color: var(--true-black);
+  box-shadow: 2px 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.night-mode-noneed-button {
+  background-color: var(--verydark-ocean);
+  box-shadow: 2px 0 5px rgba(255, 255, 255, 0.3);
+  color: var(--true-white);
+}

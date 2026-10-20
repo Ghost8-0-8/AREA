@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8081:8081"
+    volumes:
+      - type: bind
+        source: ./frontend
+        target: /app
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+    command: pnpm run dev
+    depends_on:
+      - back 
+
+  back:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - type: bind
+        source: ./backend
+        target: /app
+    environment:
+      - NODE_ENV=development
+      - MONGO_URL=mongodb://mongo:27017/mydatabase
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge

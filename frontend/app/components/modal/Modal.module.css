@@ -1,0 +1,99 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: var(--light-blue);
+  padding: 20px;
+  border-radius: 10px;
+  width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;       
+  color: var(--true-black);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.inputFieldSolo {
+  margin: 10px 0px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 95%;
+}
+
+.inputFieldDuo {
+  margin: 10px 0px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 90%;
+}
+.inputFieldSolo:focus,
+.inputFieldDuo:focus {
+  border-color: var(--medium-ocean); 
+  outline: none;
+  box-shadow: 0 0 5px var(--medium-ocean);
+}
+.inputFieldSolo:hover,
+.inputField:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.inputGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.cancelButton {
+  background-color: red;
+  color: var(--true-black);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.saveButton {
+  background-color: var(--neon-green); 
+  color: var(--true-black);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelButton:hover,
+.saveButton:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,99 @@
+"use client"; // Indique que c'est un Client Component
+
+import React, { useState } from 'react';
+import Navbar from '../../components/navbar/Navbar';
+import Sidebar from '../../components/sidebar/Sidebar';
+import style from './Create.module.css';
+import '../../globals.css';
+
+const Create: React.FC = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // État pour gérer l'ouverture de la sidebar
+
+  // Fonction pour mettre à jour l'état de la sidebar
+  const handleToggleSidebar = (isOpen: boolean) => {
+    setIsSidebarOpen(isOpen);
+  };
+
+  // Styles pour le contenu basé sur l'état de la sidebar
+  const contentStyle = {
+    marginLeft: isSidebarOpen ? '250px' : '50px', // Décalage selon l'état de la sidebar
+    transition: 'margin-left 0.3s ease', // Transition pour un effet de fluidité
+  };
+
+  return (
+    <div className={style.background}>
+      <Navbar />
+      <Sidebar onToggle={handleToggleSidebar} /> {/* Passer la fonction ici */}
+      <div className={style.content} style={contentStyle}> {/* Appliquer le style ici */}
+        {/* Première bulle */}
+        <div className={style.bubbleContainer}>
+          <div className={style.bubbleFirst}>
+            <div className={style.boxFirst}>
+              <span className={style.label}>Connect this to</span>
+              <input type="text" placeholder="search" className={style.searchInputFirst}/>
+              <div className={style.placeholderBox}></div>
+            </div>
+            <div className={style.boxFirst}>
+              <span className={style.label}>this app</span>
+              <input type="text" placeholder="search" className={style.searchInputFirst}/>
+              <div className={style.placeholderBox}></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Deuxième bulle */}
+        <div className={style.bubbleContainer}>
+          <div className={style.bubbleSecond}>
+            <div className={style.boxSecond}>
+              <span className={style.label}>When this happens then</span>
+              <input type="text" placeholder="search" className={style.searchInputSecond}/>
+            </div>
+            <div className={style.connector}></div>
+            <div className={style.boxSecond}>
+              <span className={style.label}>do this</span>
+              <input type="text" placeholder="search" className={style.searchInputSecond}/>
+            </div>
+          </div>
+        </div>
+
+        {/* Troisième bulle */}
+        <div className={style.bubbleContainer}>
+          <div className={style.bubbleThird}>
+            <div className={style.boxThird}>
+              <span className={style.label}>Start</span>
+              <input type="text" placeholder="dd/mm/yy" className={style.searchInputThird} />
+              <input type="text" placeholder="hh:mm" className={style.searchInputThird} />
+            </div>
+            <div className={style.boxThird}>
+              <span className={style.label}>End</span>
+              <input type="text" placeholder="dd/mm/yy" className={style.searchInputThird} />
+              <input type="text" placeholder="hh:mm" className={style.searchInputThird} />
+            </div>
+            <div className={style.dayButtonsContainer}>
+              <span className={style.label}>Every</span>
+              <button className={style.dayButton}>Monday</button>
+              <button className={style.dayButton}>Tuesday</button>
+              <button className={style.dayButton}>Wednesday</button>
+              <button className={style.dayButton}>Thursday</button>
+              <button className={style.dayButton}>Friday</button>
+              <button className={style.dayButton}>Saturday</button>
+              <button className={style.dayButton}>Sunday</button>
+            </div>
+            <div className={style.boxThird}>
+              <span className={style.label}>Message</span>
+              <textarea placeholder="Enter your message" className={style.textareaThird}></textarea>
+            </div>
+          </div>
+        </div>
+
+        {/* Boutons en bas */}
+        <div className={style.buttonContainer}>
+          <button className={style.cancelButton}>Cancel</button>
+          <button className={style.nextButton}>Next</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Create;

@@ -1,0 +1,123 @@
+.background {
+  background-color: var(--light-blue);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  background-color: var(--light-blue);
+  padding: 60px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  margin: 40px 0 60px; 
+  color: var(--true-black); /* Mode clair */
+}
+
+.bubbles {
+  background-color: var(--light-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.bubble {
+  background-color: var(--light-blue);
+  padding: 40px 20px;
+  border-radius: 15px;
+  width: 100%;
+  margin-left: 100px;
+  max-width: 700px;
+  margin: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  color: var(--true-black);
+}
+
+.bubble:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bubble h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: left; 
+  color: var(--true-black);
+}
+
+.bubble p {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left; 
+  color: var(--true-black);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .bubble {
+    padding: 20px;
+    margin-right: 0;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    margin: 40px 0 60px; 
+  }
+
+  .bubble h2 {
+    font-size: 1.5rem;
+  }
+
+  .bubble p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Dark mode */
+.night-mode {
+  background-color: var(--verydark-ocean);
+  color: var(--true-white);
+}
+
+.night-mode-content {
+  background-color: var(--verydark-ocean);
+}
+
+.night-mode-bubbles {
+  background-color: var(--verydark-ocean);
+}
+
+.night-mode-bubble {
+  background-color: var(--verydark-ocean);
+  color: var(--true-white);
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.3);
+}
+
+.night-mode-bubble:hover {
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+.night-mode-title {
+  color: var(--neon-blue);
+}
+
+.night-mode h2,
+.night-mode p {
+  color: var(--true-white);
+}

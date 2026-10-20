@@ -1,0 +1,67 @@
+:root {
+    --background: #ffffff;
+    --foreground: #000000;
+
+   /*Theme colors light*/
+   --true-white: #ffffff;
+   --light-blue: #E4F9F5;
+   --light-moreblue: #a4fdeb;
+   --neon-blue: #14FFEC;
+   --medium-green: #30E3CA;
+   --medium-ocean: #11999E;
+   --dark-ocean: #006064;
+   --medium-greygreen: #40514E;
+   --medium-grey: #323232;
+   --true-black: #000000;
+
+   /*Theme colors dark*/
+   --dark-blue: #10302E;
+   --neon-blue: #14FFEC;
+   --true-sea: #11999E;
+   --true-ocean: #025B5F;
+   --verydark-ocean: #002C2F;
+   --dark-greygreen: #1A2B29;
+   --medium-grey: #1C1C1C;
+
+   /*Specific colors*/
+   --true-red: #ff0000;
+   --neon-orange: #FF6D00;
+   --neon-yellow: #FFEA00;
+   --neon-grass: #76FF03;
+   --neon-green: #00E676;
+   --neon-navy: #2979FF;
+   --neon-purpule: #651FFF;
+   --neon-magenta: #D500F9;
+   --neon-pink: #F50057;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.background-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--your-background-color);
+}

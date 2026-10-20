@@ -1,0 +1,129 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin: 120px 0;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    max-width: 1500px;
+    min-width: 1000px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--light-blue);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.th, .td {
+    border-bottom: 1px solid var(--light-blue);
+    padding: 16px;
+    text-align: left;
+    color: black;
+    font-size: 24px;
+}
+
+.th {
+    background-color: var(--neon-blue);
+    color: black;
+    font-size: 28px;
+    text-transform: uppercase;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.tr:nth-child(even) {
+    background-color: #f9f9f9;
+    color: var(--true-black);
+}
+
+.tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.td:first-child {
+    border-left: none;
+}
+
+.td:last-child {
+    border-right: none;
+}
+
+@media (max-width: 1024px) {
+    .table {
+        width: 100%;
+        min-width: 800px; 
+    }
+
+    .th, .td {
+        padding: 12px;
+        font-size: 20px; 
+    }
+
+    .th {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .table {
+        width: 95%;
+        min-width: 600px;
+    }
+
+    .th, .td {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .th {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table {
+        width: 100%;
+        min-width: 100%;
+        overflow-x: auto;
+    }
+
+    .th, .td {
+        padding: 8px;
+        font-size: 16px; 
+    }
+
+    .th {
+        font-size: 18px;
+    }
+}
+
+/* Dark Mode */
+
+.night-mode-table {
+    background-color: var(--verydark-ocean);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+.night-mode-th, .night-mode-td {
+    border-bottom: 1px solid var(--neon-blue);
+    color: var(--true-white);
+}
+
+.night-mode-th {
+    background-color: var(--true-ocean);
+    color: var(--neon-blue);
+}
+
+.night-mode-tr:nth-child(even) {
+    background-color: var(--verydark-ocean);
+    color: var(--true-white);
+}
+
+.night-mode-tr:hover {
+    background-color: var(--dark-greygreen);
+}
+

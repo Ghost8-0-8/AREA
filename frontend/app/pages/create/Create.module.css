@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+  height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement le contenu */
+  justify-content: center; /* Centre verticalement le contenu */
+  text-align: center; /* Centrer le texte */
+}

@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "emailjs-com": "^3.2.0",
+    "i18next": "^23.16.4",
+    "mongodb": "^6.10.0",
+    "next-i18next": "^15.3.1",
+    "pnpm": "^9.11.0",
+    "react-i18next": "^15.1.0"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0"
+  },
+  "scripts": {
+    "predev": "sudo lsof -t -i:8081 | sudo xargs -r kill -9 || true",
+    "dev": "PORT=8081 next dev",
+    "build": "next build",
+    "start": "next start"
+  }
+}

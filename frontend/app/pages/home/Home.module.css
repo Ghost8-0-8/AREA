@@ -1,0 +1,346 @@
+.container {
+  margin-top: 80px;
+  display: flex;
+  height: 100vh;
+  background-color: var(--true-white);
+  padding: 10px; 
+  border-radius: 10px;
+}
+
+/* Section gauche avec bordure de séparation */
+.leftSection {
+  margin-top: 40px;
+  flex: 1;
+  padding: 20px;
+  background-color: var(--light-moreblue); 
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+}
+
+/* Section droite */
+.rightSection {
+  margin-top: 40px;
+  flex: 2;
+  padding: 20px;
+  background-color: var(--light-moreblue);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+/* Bulles de contenu */
+.contentBubble {
+  margin-top: 20px;
+  border-radius: 15px; 
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  background-color: var(--true-white); 
+}
+
+/* Contenu organisé en colonne */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Conteneur pour les sections Actions et Réactions */
+.actionsReactionsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 20px; /* Espace entre les sections */
+}
+
+/* Sections pour Actions et Réactions */
+.actionsSection, .reactionsSection {
+  flex: 1;
+  background-color: var(--light-blue);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.actionsSection {
+  margin-right: 10px;
+}
+
+.reactionsSection {
+  margin-left: 10px;
+}
+
+/* Titres des sections */
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--true-black); 
+  margin-bottom: 15px;
+}
+
+/* Boutons génériques */
+.button, .actionButton, .reactionButton {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-bottom: 10px;
+  margin-right: 60px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.button {
+  background-color: var(--medium-ocean);
+  color: var(--true-white);
+}
+
+.button:hover {
+  background-color: var(--dark-ocean);
+  transform: scale(1.05);
+}
+
+/* Boutons pour actions et réactions */
+.actionButton {
+  background-color: var(--light-moreblue);
+  color: var(--medium-greygreen);
+}
+
+.reactionButton {
+  background-color: var(--light-moreblue);
+  color: var(--medium-greygreen);
+}
+
+.actionButton:hover
+.reactionButton:hover {
+  background-color: var(--medium-green);
+  color: var(--true-black);
+}
+
+/* Listes sans puces */
+.serviceList, .actionList, .reactionList {
+  list-style: none;
+  padding: 0;
+}
+
+/* Éléments de liste */
+.serviceListItem, .actionListItem, .reactionListItem {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--light-blue);
+  margin: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.serviceListItem:hover, .actionListItem:hover, .reactionListItem:hover {
+  background-color: var(--neon-blue);
+  transform: translateY(-3px);
+}
+
+/* Champ de saisie de texte */
+.input[type="text"] {
+  padding: 10px;
+  border: 1px solid var(--true-black);
+  border-radius: 5px;
+  margin-top: 5px;
+  width: calc(100% - 20px);
+  font-size: 1rem;
+}
+
+/* Conteneur principal de la modale pour .methodParams */
+.methodParams {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: var(--light-blue);
+  perspective: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  padding: 30px; 
+  z-index: 1000;
+}
+
+/* Fond sombre pour couvrir la page */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000; 
+}
+
+/* Titre de la section */
+.methodParams h3 {
+  font-size: 1.75rem;
+  color: var(--medium-grey);
+  margin-bottom: 25px; 
+  border-bottom: 2px solid var(--medium-greygreen); 
+  padding-bottom: 12px;
+}
+
+/* Champs de saisie stylisés */
+.methodParams input {
+  width: calc(95% - 20px);
+  padding: 15px; 
+  border: 1px solid var(--medium-grey);
+  border-radius: 8px;
+  background-color: #f9f9f9; 
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s; 
+  margin-bottom: 20px;
+}
+
+.methodParams input:focus {
+  border-color: var(--medium-ocean);
+  box-shadow: 0 0 2px var(--medium-ocean);
+  background-color: var(--light-blue); 
+}
+
+/* Placeholder Style */
+.methodParams input::placeholder {
+  color: var(--medium-grey); 
+  opacity: 0.7;
+}
+
+/* Bouton Save */
+.methodParams button {
+  display: block;
+  background-color: var(--medium-ocean);
+  color: var(--true-white);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.methodParams button:hover {
+  background-color: var(--dark-ocean);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* Bouton de fermeture */
+.methodParams .closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--medium-grey);
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.methodParams .closeButton:hover {
+  color: var(--dark-ocean);
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .methodParams h3 {
+    font-size: 1.5rem;
+  }
+
+  .methodParams input, .methodParams button {
+    font-size: 1rem; 
+  }
+}
+
+
+/* Add Area Button */
+.addAreaButton {
+  background-color: var(--neon-blue);
+  color: var(--true-black);
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.2s;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.addAreaButton:hover {
+  background-color: var(--medium-green);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* Areas Display Section */
+.areasSection {
+  background-color: var(--true-white);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.areasSectionTitle {
+  font-size: 1.8rem;
+  color: var(--true-black);
+}
+
+.areaItem {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: var(--light-moreblue);
+  margin-bottom: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.areaItem:hover {
+  background-color: var(--light-blue);
+  transform: scale(1.02);
+}
+
+/* Bouton pour l'icône Close */
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--true-red);
+  padding: 0;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.closeButton:hover {
+  color: #c0392b;
+}
+
+/* Dark Mode */
+.contentBubble-night,
+.areaItem-night,
+.areasSection-night,
+.container-night {
+  background-color: var(--verydark-ocean);
+}
+.serviceListItem-night,
+.reactionListItem-night,
+.actionListItem-night,
+.leftSection-night,
+.rightSection-night {
+  background-color: var(--true-ocean);
+}
+
+.serviceListItem-night:hover, .actionListItem-night:hover, .reactionListItem-night:hover {
+  color: var(--true-black);
+}
+
+.areasSectionTitle-night,
+.actionList-night,
+.reactionList-night,
+.serviceList-night,
+.sectionTitle-night {
+  color: var(--true-white);
+}
